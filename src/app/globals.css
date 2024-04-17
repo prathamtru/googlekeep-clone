@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  margin:0;
+  transition: all 0.3s ease-in-out;
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  color: rgb(90, 90, 90);
+  /* color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb)); */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.app{
+  margin:0
+}
+
+.NavContainer{
+  /* border: 1px solid green; */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: white;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  
+
+}
+
+.NavIconGroupContainer{
+  margin:2%;
+   display: flex;
+   
+
+}
+
+.NavIconContainer{
+  padding: 1%;
+  
+  width: 20%;
+  height: 10vh;
+  display: flex;
+}
+
+.NavSearchContainer{
+  padding: 1%;
+  
+  width: 50%;
+  height: 10vh;
+  display: flex;
+}
+
+.NavProfileContainer{
+  padding: 1%;
+  justify-content: space-around;
+  width: 30%;
+  height: 10vh;
+  display: flex;
+}
+
+.sideContainerOpen{
+  width: 20%;
+  height: 50vh;
+  padding-top: 50px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10%;
+  div{
+    cursor: pointer;
+    display: flex;
+    font-size:x-large;
+    padding: 10px 0px 10px 20px;
+    font-weight: bold;
+
+    p{ 
+      margin-left: 30px;
+      
+    }
+  }
+}
+
+
+
+
+.AddNoteContainer{
+  width: 100%;
+  height:20%;
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.AddNewNoteContainer{
+  width: 50%;
+  /* height: 190px; */
+  margin: 10px;
+  padding: 5px;
+  
+}
+
+.container {
+ 
+  padding: 3em;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  .quote {
+      padding: 2em;
+      border-radius: .3em;
+      box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
+
+      p {
+          margin-top: 0;
+      }
+
+      span {
+          font-weight: bold;
+          position: relative;
+          margin-left: 15px;
+
+          &:before {
+              content: '';
+              position: absolute;
+              height: 1px;
+              width: 10px;
+              border-bottom: 1px solid black;
+              top: 10px;
+              left: -15px;
+
+          }
+      }
+  }
+}
+
+.Overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(14, 14, 15, 0.3);
+  
+
+}
