@@ -4,7 +4,7 @@ import './register.css'
 import { Login } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
 
-export default function about() {
+export default function Register() {
 
 	const router = useRouter();
 
