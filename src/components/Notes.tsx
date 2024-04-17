@@ -18,7 +18,7 @@ export default function Notes() {
           //backdrop: "black"
         },
       };
-    let subtitle;
+    let subtitle : any;
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
