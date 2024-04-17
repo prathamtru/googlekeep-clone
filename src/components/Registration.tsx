@@ -21,7 +21,7 @@ export default function Registration() {
     
     
     
-     const register = async(e) => {
+     const register = async(e:any) => {
         e.preventDefault();
     
         const resgisterData = {
@@ -45,7 +45,7 @@ export default function Registration() {
         }
      }
     
-     const login = async(e) => {
+     const login = async(e:any) => {
     
         e.preventDefault();
     

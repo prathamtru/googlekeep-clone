@@ -1,7 +1,4 @@
 import type { Metadata } from "next";
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
-import { ThemeProvider } from '@mui/material/styles';
-import theme from '../theme';
 import { Inter } from "next/font/google";
 import "./globals.css";
 

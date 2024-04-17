@@ -22,7 +22,7 @@ const [registerPassword, setRegisterPassword] = useState("")
 
 
 
- const register = async(e) => {
+ const register = async(e: any) => {
 	e.preventDefault();
 
 	const resgisterData = {
@@ -46,7 +46,7 @@ const [registerPassword, setRegisterPassword] = useState("")
 	}
  }
 
- const login = async(e) => {
+ const login = async(e : any) => {
 
 	e.preventDefault();
 
