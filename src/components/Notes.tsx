@@ -4,7 +4,7 @@ import React, {useState} from 'react'
 import Modal from 'react-modal';
 
 
-export default function Notes() {
+export default function Notes({notes}) {
 
     const customStyles = {
         content: {
@@ -38,12 +38,7 @@ export default function Notes() {
 
   return (
     <div className="container">
-    <div onClick={openModal} className="quote">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nesciunt ullam itaque! Consequuntur, asperiores modi!
-            
-        </p>
-        <span>John Doe</span>
-    </div>
+  
     <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -63,54 +58,20 @@ export default function Notes() {
           <button>the modal</button>
         </form>
       </Modal>
-    <div className="quote span-2">
+    {/* <div className="quote span-2">
+    <span>John Doe</span>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nesciunt ullam itaque! Consequuntur, asperiores modi!</p>
-        <span>John Doe</span>
+        
+    </div> */}
+   { notes.map((val) => {
+    return(
+     <div onClick={openModal} className="quote">
+        <span>{val.title}</span>
+        <p>{val.body}</p>
     </div>
-    <div className="quote">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nesciunt ullam itaque! Consequuntur, asperiores modi!</p>
-        <span>John Doe</span>
-    </div>
-    <div className="quote">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nesciunt ullam itaque! Consequuntur, asperiores modi!</p>
-        <span>John Doe</span>
-    </div>
-    <div className="quote">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nesciunt ullam itaque! Consequuntur, asperiores modi!</p>
-        <span>John Doe</span>
-    </div>
-    <div className="quote">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nesciunt ullam itaque! Consequuntur, asperiores modi!</p>
-        <span>John Doe</span>
-    </div>
-    <div className="quote">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nesciunt ullam itaque! Consequuntur, asperiores modi!</p>
-        <span>John Doe</span>
-    </div>
-    <div className="quote">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nesciunt ullam itaque! Consequuntur, asperiores modi!</p>
-        <span>John Doe</span>
-    </div>
-    <div className="quote">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nesciunt ullam itaque! Consequuntur, asperiores modi!</p>
-        <span>John Doe</span>
-    </div>
-    <div className="quote">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nesciunt ullam itaque! Consequuntur, asperiores modi!</p>
-        <span>John Doe</span>
-    </div>
-    <div className="quote">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nesciunt ullam itaque! Consequuntur, asperiores modi!</p>
-        <span>John Doe</span>
-    </div>
-    <div className="quote">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nesciunt ullam itaque! Consequuntur, asperiores modi!</p>
-        <span>John Doe</span>
-    </div>
-    <div className="quote">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nesciunt ullam itaque! Consequuntur, asperiores modi!</p>
-        <span>John Doe</span>
-    </div>
+    )
+   }) }
+    
 </div>
   )
 }

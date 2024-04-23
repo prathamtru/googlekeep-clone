@@ -1,10 +1,11 @@
 "use client"
 import React, {useRef, useState} from 'react'
+import axios from 'axios'
 import './register.css'
 import { Login } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
 
-export default function Register() {
+export default function Login() {
 
 	const router = useRouter();
 
@@ -26,52 +27,39 @@ const [registerPassword, setRegisterPassword] = useState("")
 	e.preventDefault();
 
 	const resgisterData = {
-		UserName : registerUsername,
-      Email: registerEmail ,
-      Password : registerPassword
+		firstName : registerUsername,
+		email: registerEmail ,
+      password : registerPassword
 	}
 
-	const  res = await fetch('http://localhost:8080/users/register', {
-		method:'POST',
-		body:JSON.stringify(resgisterData),
-		credentials: "include", // added this part
-        headers: {
-          'content-type': 'application/json'
-        }
-	})
-    const data= await res.json();
+	await axios.post('/api/register', (resgisterData)).then(res => {
+		const register = res.data;
+		console.log(resgisterData, "resgisterData")
+		  if(register.success){
+			
+			router.push('/Home/notes')
+		  } 
+	  })
 
-	if(data.status == 200) {
-		router.push('/Home')
 	}
- }
+ 
 
- const login = async(e : any) => {
-
-	e.preventDefault();
-
-	const submitData = {
-		"Email": loginEmail,
-		"Password" : loginPassword
-	}
-
-
-	const res = await fetch('http://localhost:8080/users/login',{
-        method: 'POST',
-        body: JSON.stringify(submitData),
-		credentials: "include", // added this part
-        headers: {
-          'content-type': 'application/json'
-        }
-      })
-     
-	 const data = await res.json()
-	 if(data.status == 200) {
-		router.push('/Home')
-	}
-
- }
-
+ const login  = async(e) => {
+   
+    e.preventDefault() 
+    
+    let body = {
+      email: loginEmail,
+    password: loginPassword
+    }
+    
+    await axios.post('/api/login', (body)).then(res => {
+    const login = res.data;
+      if(login.success){
+        router.push('/Home/notes')
+      } 
+  })
+  }
  
  
 

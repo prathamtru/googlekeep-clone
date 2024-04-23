@@ -1,33 +1,26 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
-import {verify} from 'jsonwebtoken'
-import * as jose from 'jose'
+import { NextRequest, NextResponse } from "next/server";
+import { verifyAuth } from "./lib/auth";
+
+export async function middleware(req: NextRequest) {
+    const token = req.cookies.get('session_id')?.value
 
 
+    const auth =  await verifyAuth(token);
+   
+    if(auth && req.url.includes('/login'))
+    {
+     return NextResponse.redirect(new URL('/Home/notes', req.url))
 
+    }
 
-export const middleware = async(request : NextRequest, response:NextResponse) => {
-
-
-   // const x = await jwtVerify();
-    console.log( "dsfsd")
-    // let accessToken = jwtVerify()
-    // console.log(accessToken, "access")
-
+    if((!auth || auth == undefined) && !req.url.includes('/login'))
+    {
+        console.log("redirecy")
     
-	// if(accessToken &&  request.nextUrl.pathname === "/Register")
-    // {
-    //    return NextResponse.redirect(new URL('/Home', request.url));
-    // }
-    // else if(!accessToken &&  request.nextUrl.pathname !== "/Register")
-    // {
-    //     return NextResponse.redirect(new URL('/Register', request.url));
-    // }
+            return NextResponse.redirect(new URL('/login', req.url))      
+    }
+}
 
-//   const ver = jose.jwtVerify(accessToken, "GoogleKeepSecretCode")
-
-//   console.log(ver)
-    
-    
-
+export const config ={
+    matcher : ['/login', '/Home/:path*']
 }
