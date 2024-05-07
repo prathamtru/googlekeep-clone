@@ -28,30 +28,32 @@ export async function POST(req :Request,res : Response){
     if(creds){ 
         console.log(creds,  "credsss")
         const bResult = await bcrypt.compare( data.password ,creds.password);
+        console.log(bResult, "bResult")
     if (bResult) {
         token = jwt.sign({
         id: creds.id,
         email: creds.email,
     },
-        process.env.ACCESS_TOKEN || '',
+        "GoogleKeepSecretCode",
         { expiresIn: '10h' });
     }
-}
     else
     {
         return NextResponse.json({
         "msg" : "Email or Password doesn't match"
         })
     }
-    
+}
+
 
     return NextResponse.json({
 		success: true,
         msg: "Logged in Successfully",
+       
 	},
 	{
 		status: 201,
-		headers: { 'Set-Cookie': [`session_id=${token}; HttpOnly; path=/; Secure`,  `userId=${creds.id}` ] }
+        headers: { 'Set-Cookie': [`session_id=${token}; HttpOnly; path=/; Secure`,  `userId=${creds.id}` ] }
 	})
 
 }

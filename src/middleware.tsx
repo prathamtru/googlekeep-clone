@@ -9,6 +9,7 @@ export async function middleware(req: NextRequest) {
    
     if(auth && req.url.includes('/login'))
     {
+        console.log("hello")
      return NextResponse.redirect(new URL('/Home/notes', req.url))
 
     }

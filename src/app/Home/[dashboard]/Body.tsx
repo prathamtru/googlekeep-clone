@@ -35,8 +35,7 @@ export default  function Body({addNotes} : { addNotes: any }) {
 
   return (
     <>
-    {/* <AddNote/> */}
-    
+    <AddNote/>
     {/* <Notes notes={notes} /> */}
     <button onClick={hello}>jddsj</button>
     </>

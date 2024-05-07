@@ -15,7 +15,7 @@
 
 # production
 /build
-
+package-lock.json
 # misc
 .DS_Store
 *.pem
@@ -26,11 +26,13 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
+
 
 # vercel
-.vercel
+
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
