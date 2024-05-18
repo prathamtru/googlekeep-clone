@@ -1,8 +1,8 @@
-"us client"
+"use client"
 import React, {useState, useTransition} from 'react'
 
 
-export default function AddNote({addNotes}) {
+export default function AddNote({addNotes} :{addNotes : any}) {
 
   const [title, setTitle] = useState("")
   const [body, setBody] = useState("")
@@ -16,16 +16,18 @@ export default function AddNote({addNotes}) {
       className="w-full flex mb-10"
       onSubmit={(e) => {
         e.preventDefault();
+       // console.log("inside")
 
         if (title.trim().length === 0) {
           return;
         }
 
         startTransition(() => {
-          addNotes(title);
+          addNotes(title, body);
         });
 
         setTitle("");
+        setBody("")
       }}
     >
         <input onChange={(e) => setTitle(e.target.value)} style={{width:"100%"}} type="text" placeholder='Take a note...'></input>

@@ -26,9 +26,9 @@ export async function POST(req :Request,res : Response){
     
     let token
     if(creds){ 
-        console.log(creds,  "credsss")
+       // console.log(creds,  "credsss")
         const bResult = await bcrypt.compare( data.password ,creds.password);
-        console.log(bResult, "bResult")
+        //console.log(bResult, "bResult")
     if (bResult) {
         token = jwt.sign({
         id: creds.id,

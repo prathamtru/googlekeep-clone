@@ -34,7 +34,7 @@ const [registerPassword, setRegisterPassword] = useState("")
 
 	await axios.post('/api/register', (resgisterData)).then(res => {
 		const register = res.data;
-		console.log(resgisterData, "resgisterData")
+		//console.log(resgisterData, "resgisterData")
 		  if(register.success){
 			
 			router.push('/Home/notes')

@@ -5,7 +5,7 @@ export default async function Slug({title}) {
   const addNotes = async() => {
     "use server"
 
-    console.log("hello")
+    //console.log("hello")
     // await prisma.notes.create({  data : {
     //   tiile : data.firstName,
     //   body : data.lastName ?? data.firstName.split(" ")[1]  ?? "lastName",

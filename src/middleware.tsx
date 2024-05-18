@@ -9,14 +9,14 @@ export async function middleware(req: NextRequest) {
    
     if(auth && req.url.includes('/login'))
     {
-        console.log("hello")
+        // console.log("hello")
      return NextResponse.redirect(new URL('/Home/notes', req.url))
 
     }
 
     if((!auth || auth == undefined) && !req.url.includes('/login'))
     {
-        console.log("redirecy")
+        //console.log("redirecy")
     
             return NextResponse.redirect(new URL('/login', req.url))      
     }

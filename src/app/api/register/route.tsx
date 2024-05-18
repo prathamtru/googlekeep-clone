@@ -14,7 +14,7 @@ export async function POST(req: Request){
     const data  = await req.json()
 
  
-console.log(data, "dattaa")
+//console.log(data, "dattaa")
     if(!data.email || !data.password || !data.firstName)
     {
         return NextResponse.json({
@@ -30,7 +30,7 @@ console.log(data, "dattaa")
 
     const hash = await bcrypt.hash(data.password, 10);
 
-    console.log(hash,"hashh")
+    //console.log(hash,"hashh")
 
     const user = await prisma.user.create({
         data : {
